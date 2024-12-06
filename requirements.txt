@@ -1,0 +1,9 @@
+fastapi
+uvicorn
+transformers
+datasets
+beautifulsoup4
+requests
+torch
+faiss-gpu
+sentence_transformers

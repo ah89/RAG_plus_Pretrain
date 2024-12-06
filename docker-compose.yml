@@ -1,0 +1,23 @@
+version: "3.10"
+
+services:
+  chatbot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: chatbot-app
+    ports:
+      - "8000:8000"  # Map port 8000 on the host to port 8000 in the container
+      - "5000:5000"  
+    volumes:
+      - ./models:/app/models  # Persist the models directory
+      - ./temp:/app/temp      # Persist temporary crawling data (optional)
+    environment:
+      - PYTHONUNBUFFERED=1  # Ensures logs are streamed immediately
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - capabilities: [gpu]
+    runtime: nvidia
