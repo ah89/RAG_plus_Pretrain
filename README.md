@@ -27,6 +27,12 @@ Loop-in RAG and Pretrain as chat agent to the LLM structure. A chatbot that cons
 1. Build the Docker image:
 
    ```bash
+   docker-compose up --build
+   ```
+
+or
+
+   ```bash
    docker build -t chatbot-app .
    ```
 
